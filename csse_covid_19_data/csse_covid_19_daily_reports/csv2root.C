@@ -21,7 +21,9 @@ void csv2root(TString filenames) {
    int Cases(0), Deaths(0), Recovered(0), DeltaCases(0), DeltaDeaths(0), DeltaRecovered(0);
    TDatime date;
 
-   map<TString> prevCases, prevDeaths, prevRecovered;
+   map<TString,int> prevCases;
+   map<TString,int> prevDeaths;
+   map<TString,int> prevRecovered;
 
    tr.Branch("Province",Province,"Province/C");
    tr.Branch("Country",Country,"Country/C");
@@ -68,8 +70,11 @@ void csv2root(TString filenames) {
          int cnt=0;
          while (thelineT.Tokenize(tok2, from2, ",")) {
             if (cnt==0) sprintf(Province,tok2.Data());
-            else if (cnt==1) sprintf(Country,tok2.Data());
-            else if (cnt==2) sprintf(LastUpdated,tok2.Data());
+            else if (cnt==1) {
+               sprintf(Country,tok2.Data());
+               // workaround for France: if Province is empty, then copy Country into it
+               if (TString(Province)=="") strcpy(Province,Country);
+            } else if (cnt==2) sprintf(LastUpdated,tok2.Data());
             else if (cnt==3) {
                int CasesToday = atoi(tok2);
                DeltaCases = CasesToday - prevCases[TString(Province)+TString(Country)];
@@ -84,11 +89,12 @@ void csv2root(TString filenames) {
                int RecoveredToday = atoi(tok2);
                DeltaRecovered = RecoveredToday - prevRecovered[TString(Province)+TString(Country)];
                Recovered = RecoveredToday;
-               prevCases[TString(Province)+TString(Country)] = CasesToday;
+               prevRecovered[TString(Province)+TString(Country)] = RecoveredToday;
             }
             cnt++;
          }
          // cout << Province << " " << Country << " " << LastUpdated << " " << Cases << " " << Deaths << " " << Recovered << " " << DeltaCases << " " << DeltaDeaths << " " << DeltaRecovered << endl;
+
 
          tr.Fill();
       }
