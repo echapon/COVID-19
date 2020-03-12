@@ -12,7 +12,7 @@
 using namespace std;
 
 void csv2root(TString filenames) {
-   TFile f("data_covd19.root","RECREATE");
+   TFile f("data_covid19.root","RECREATE");
    TTree tr("tree","tree");
    // tr.ReadFile(filename, "Province/C:Country/C:LastUpdate/C:Confirmed/I:Deaths/I:Recovered/I",',');
 
