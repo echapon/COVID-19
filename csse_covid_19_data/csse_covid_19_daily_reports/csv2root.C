@@ -13,7 +13,7 @@ using namespace std;
 
 TObjArray *GetColumns(const TString &str)
 {
-   TPRegexp r("\"([\\w\\s,]+)\",?");
+   TPRegexp r("\"([\\w\\s,().]+)\",?");
 
    TObjArray *colL = new TObjArray();
    colL->SetOwner();
@@ -95,6 +95,7 @@ void csv2root(TString filenames) {
                TString tmpsnew = tmps;
                tmpsnew.ReplaceAll(",",";");
                thelineT.ReplaceAll(tmps,tmpsnew);
+               thelineT.ReplaceAll("\"","");
             }
          }
 
@@ -110,6 +111,10 @@ void csv2root(TString filenames) {
                if (Province.back()=="") Province.back() = Country.back();
                // workaround for China
                if (Country.back()=="Mainland China") Country.back() = "China";
+               // workaround for S. Korea
+               if (Country.back().Contains("Korea")) Country.back() = "South Korea";
+               // workaround for Iran
+               if (Country.back().Contains("Iran")) Country.back() = "Iran";
             } else if (cnt==2) LastUpdated.push_back(tok2);
             else if (cnt==3) {
                int CasesToday = atoi(tok2);
@@ -117,13 +122,13 @@ void csv2root(TString filenames) {
                DeltaCases.push_back(CasesToday - prevCases[Province.back()+Country.back()]);
                Cases.push_back(CasesToday);
                prevCases[Province.back()+Country.back()] = CasesToday;
-            } else if (cnt==5) {
+            } else if (cnt==4) {
                int DeathsToday = atoi(tok2);
                totDeaths += DeathsToday;
                DeltaDeaths.push_back(DeathsToday - prevDeaths[Province.back()+Country.back()]);
                Deaths.push_back(DeathsToday);
                prevDeaths[Province.back()+Country.back()] = DeathsToday;
-            } else if (cnt==6) {
+            } else if (cnt==5) {
                int RecoveredToday = atoi(tok2);
                totRecovered += RecoveredToday;
                DeltaRecovered.push_back(RecoveredToday - prevRecovered[Province.back()+Country.back()]);
@@ -132,7 +137,8 @@ void csv2root(TString filenames) {
             }
             cnt++;
          }
-         // cout << Province << " " << Country << " " << LastUpdated << " " << Cases << " " << Deaths << " " << Recovered << " " << DeltaCases << " " << DeltaDeaths << " " << DeltaRecovered << endl;
+         if (thelineT.Contains("\"") )
+               cout << Province.back() << " " << Country.back() << " " << LastUpdated.back() << " " << Cases.back() << " " << Deaths.back() << " " << Recovered.back() << " " << DeltaCases.back() << " " << DeltaDeaths.back() << " " << DeltaRecovered.back() << endl;
 
       }
       cout << parsedate.Data() << ": " << totCases << ", " << totDeaths << ", " << totRecovered << endl;
