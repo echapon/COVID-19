@@ -7,6 +7,12 @@ void setHistStyle(TH1F *hist, Color_t color = kBlack) {
    hist->SetLineColor(color);
 };
 
+void makeDelta(TH1F *horig, TH1F *htarget) {
+   for (int i=1; i<=horig->GetNbinsX(); i++) {
+      htarget->SetBinContent(i, horig->GetBinContent(i)-horig->GetBinContent(i-1));
+   }
+}
+
 void drawMulti() {
    gStyle->SetTimeOffset(0);
    TFile *f = TFile::Open("data_covid19.root");
@@ -14,6 +20,7 @@ void drawMulti() {
 
    // start date is the first day you want
    TDatime dstart(2020,1,22,0,0,0);
+   // TDatime dstart(2020,3,8,0,0,0);
    // end date is the last day you want, plus one day
    TDatime dend(2020,3,13,0,0,0); 
 
@@ -67,12 +74,17 @@ void drawMulti() {
    setHistStyle(hDeltaRecoveredWorld, kBlue);
    setHistStyle(hDeltaCasesActiveWorld, kGreen+2);
    
-   tr->Draw("date.Convert()>>hDeltaCasesWorld","Sum$(DeltaCases)","hist L");
-   tr->Draw("date.Convert()>>hDeltaDeathsWorld","Sum$(DeltaDeaths)","hist L same");
-   tr->Draw("date.Convert()>>hDeltaRecoveredWorld","Sum$(DeltaRecovered)","hist L same");
-   tr->Draw("date.Convert()>>hDeltaCasesActiveWorld","Sum$(DeltaCases)","goff");
-   hDeltaCasesActiveWorld->Add(hDeltaRecoveredWorld,-1);
-   hDeltaCasesActiveWorld->Draw("hist L same");
+   // tr->Draw("date.Convert()>>hDeltaCasesWorld","Sum$(DeltaCases)","hist L");
+   // tr->Draw("date.Convert()>>hDeltaDeathsWorld","Sum$(DeltaDeaths)","hist L same");
+   // tr->Draw("date.Convert()>>hDeltaRecoveredWorld","Sum$(DeltaRecovered)","hist L same");
+   // tr->Draw("date.Convert()>>hDeltaCasesActiveWorld","Sum$(DeltaCases)","goff");
+   // hDeltaCasesActiveWorld->Add(hDeltaRecoveredWorld,-1);
+   // hDeltaCasesActiveWorld->Draw("hist L same");
+   makeDelta(hCasesWorld,hDeltaCasesWorld); hDeltaCasesWorld->Draw("hist L");
+   makeDelta(hDeathsWorld,hDeltaDeathsWorld); hDeltaDeathsWorld->Draw("hist L same");
+   makeDelta(hRecoveredWorld,hDeltaRecoveredWorld); hDeltaRecoveredWorld->Draw("hist L same");
+   makeDelta(hCasesActiveWorld,hDeltaCasesActiveWorld); hDeltaCasesActiveWorld->Draw("hist L same");
+   
 
    TLegend *tlegWorld2 = new TLegend(0.2,0.6,0.5,0.9);
    tlegWorld2->SetBorderSize(0);
@@ -165,18 +177,31 @@ void drawMulti() {
    setHistStyle(hDeltaCasesUK, kPink);
    setHistStyle(hDeltaCasesUS, kAzure);
 
-   tr->Draw("date.Convert()>>hDeltaCasesChina","Sum$(DeltaCases*(Country==\"China\"))","hist L");
-   tr->Draw("date.Convert()>>hDeltaCasesKorea","Sum$(DeltaCases*(Country==\"South Korea\"))","hist L same");
-   tr->Draw("date.Convert()>>hDeltaCasesJapan","Sum$(DeltaCases*(Country==\"Japan\"))","hist L same");
-   tr->Draw("date.Convert()>>hDeltaCasesIran","Sum$(DeltaCases*(Country==\"Iran\"))","hist L same");
-   tr->Draw("date.Convert()>>hDeltaCasesItaly","Sum$(DeltaCases*(Country==\"Italy\"))","hist L same");
-   tr->Draw("date.Convert()>>hDeltaCasesFrance","Sum$(DeltaCases*(Country==\"France\"))","hist L same");
-   tr->Draw("date.Convert()>>hDeltaCasesGermany","Sum$(DeltaCases*(Country==\"Germany\"))","hist L same");
-   tr->Draw("date.Convert()>>hDeltaCasesSwitzerland","Sum$(DeltaCases*(Country==\"Switzerland\"))","hist L same");
-   tr->Draw("date.Convert()>>hDeltaCasesUK","Sum$(DeltaCases*(Country==\"UK\"))","hist L same");
-   tr->Draw("date.Convert()>>hDeltaCasesUS","Sum$(DeltaCases*(Country==\"US\"))","hist L same");
+   // tr->Draw("date.Convert()>>hDeltaCasesChina","Sum$(DeltaCases*(Country==\"China\"))","hist L");
+   // tr->Draw("date.Convert()>>hDeltaCasesKorea","Sum$(DeltaCases*(Country==\"South Korea\"))","hist L same");
+   // tr->Draw("date.Convert()>>hDeltaCasesJapan","Sum$(DeltaCases*(Country==\"Japan\"))","hist L same");
+   // tr->Draw("date.Convert()>>hDeltaCasesIran","Sum$(DeltaCases*(Country==\"Iran\"))","hist L same");
+   // tr->Draw("date.Convert()>>hDeltaCasesItaly","Sum$(DeltaCases*(Country==\"Italy\"))","hist L same");
+   // tr->Draw("date.Convert()>>hDeltaCasesFrance","Sum$(DeltaCases*(Country==\"France\"))","hist L same");
+   // tr->Draw("date.Convert()>>hDeltaCasesGermany","Sum$(DeltaCases*(Country==\"Germany\"))","hist L same");
+   // tr->Draw("date.Convert()>>hDeltaCasesSwitzerland","Sum$(DeltaCases*(Country==\"Switzerland\"))","hist L same");
+   // tr->Draw("date.Convert()>>hDeltaCasesUK","Sum$(DeltaCases*(Country==\"UK\"))","hist L same");
+   // tr->Draw("date.Convert()>>hDeltaCasesUS","Sum$(DeltaCases*(Country==\"US\"))","hist L same");
+   makeDelta(hCasesChina,hDeltaCasesChina); hDeltaCasesChina->Draw("hist L");
+   // fix the "bug" in the China delta
+   hDeltaCasesChina->GetYaxis()->SetRangeUser(0,5000); 
+   hDeltaCasesChina->Draw("hist L");
+   makeDelta(hCasesKorea,hDeltaCasesKorea); hDeltaCasesKorea->Draw("hist L same");
+   makeDelta(hCasesJapan,hDeltaCasesJapan); hDeltaCasesJapan->Draw("hist L same");
+   makeDelta(hCasesIran,hDeltaCasesIran); hDeltaCasesIran->Draw("hist L same");
+   makeDelta(hCasesItaly,hDeltaCasesItaly); hDeltaCasesItaly->Draw("hist L same");
+   makeDelta(hCasesFrance,hDeltaCasesFrance); hDeltaCasesFrance->Draw("hist L same");
+   makeDelta(hCasesGermany,hDeltaCasesGermany); hDeltaCasesGermany->Draw("hist L same");
+   makeDelta(hCasesSwitzerland,hDeltaCasesSwitzerland); hDeltaCasesSwitzerland->Draw("hist L same");
+   makeDelta(hCasesUK,hDeltaCasesUK); hDeltaCasesUK->Draw("hist L same");
+   makeDelta(hCasesUS,hDeltaCasesUS); hDeltaCasesUS->Draw("hist L same");
 
-   TLegend *tleg2 = new TLegend(0.570912,0.342665,0.787722,0.874349);
+   TLegend *tleg2 = new TLegend(0.590912,0.362665,0.807722,0.894349);
    tleg2->SetBorderSize(0);
    tleg2->AddEntry(hDeltaCasesChina,"China #Delta cases","L");
    tleg2->AddEntry(hDeltaCasesKorea,"Korea #Delta cases","L");
