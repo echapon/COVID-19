@@ -10,8 +10,8 @@ void drawhist(TString var="DeltaCases", TString country="China") {
    h->GetXaxis()->SetTimeFormat("%m/%d");
    h->GetXaxis()->SetTitle("Date [month/day]");
    
-   // tr->Draw("date.Convert()>>h","Sum$(" + var + "*(Country==\"" + country + "\"))","hist");
-   tr->Draw("date.Convert()>>h","Sum$(" + var + ")","hist");
+   tr->Draw("date.Convert()>>h","Sum$(" + var + "*(Country==\"" + country + "\"))","hist");
+   // tr->Draw("date.Convert()>>h","Sum$(" + var + ")","hist");
 
    // auto htemp = (TH1F*) gDirectory->Get("htemp");
    // htemp->GetXaxis()->SetTimeDisplay(1);
