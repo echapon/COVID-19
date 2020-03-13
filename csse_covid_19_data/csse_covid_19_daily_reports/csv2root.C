@@ -113,8 +113,10 @@ void csv2root(TString filenames) {
                if (Country.back()=="Mainland China") Country.back() = "China";
                // workaround for S. Korea
                if (Country.back().Contains("Korea")) Country.back() = "South Korea";
-               // workaround for Iran
+               // workaround for UK
                if (Country.back().Contains("Iran")) Country.back() = "Iran";
+               // workaround for Iran
+               if (Country.back().Contains("United Kingdom")) Country.back() = "UK";
             } else if (cnt==2) LastUpdated.push_back(tok2);
             else if (cnt==3) {
                int CasesToday = atoi(tok2);
