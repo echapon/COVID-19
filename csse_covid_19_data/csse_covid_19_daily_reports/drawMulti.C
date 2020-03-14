@@ -22,7 +22,7 @@ void drawMulti() {
    TDatime dstart(2020,1,22,0,0,0);
    // TDatime dstart(2020,3,8,0,0,0);
    // end date is the last day you want, plus one day
-   TDatime dend(2020,3,13,0,0,0); 
+   TDatime dend(2020,3,14,0,0,0); 
 
    TCanvas *c1 = new TCanvas("coronavirus","coronavirus",1280,800);
    c1->Divide(2,2);
