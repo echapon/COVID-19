@@ -4,6 +4,7 @@
 * csv2root.C: convert a list of CSV files (daily reports) to a ROOT file. See second line of list.txt for how to run it.
 * drawhist.C: example macro to draw an histogram.
 * drawMulti.C: standard suite of plots.
+* fithist.C: fitting the histogram produced with drawhist.C with a logistic (counts) or Gaussian (Delta). WORK IN PROGRESS
 
 ## organisation of the ROOT file: data_covid19.root
     tree->Show(0)
