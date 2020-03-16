@@ -3,6 +3,8 @@
 
 This is the data repository for the 2019 Novel Coronavirus Visual Dashboard operated by the Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE). Also, Supported by ESRI Living Atlas Team and the Johns Hopkins University Applied Physics Lab (JHU APL).
 
+The ROOT file is at this path: csse_covid_19_data/csse_covid_19_daily_reports/data_covid19.root
+
 <br>
 
 <b>Visual Dashboard (desktop):</b><br>
