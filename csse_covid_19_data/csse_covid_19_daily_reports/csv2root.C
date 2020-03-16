@@ -107,8 +107,6 @@ void csv2root(TString filenames) {
             if (cnt==0) Province.push_back(tok2);
             else if (cnt==1) {
                Country.push_back(tok2);
-               // workaround for France: if Province is empty, then copy Country into it
-               if (Province.back()=="") Province.back() = Country.back();
                // workaround for China
                if (Country.back()=="Mainland China") Country.back() = "China";
                // workaround for S. Korea
@@ -117,6 +115,8 @@ void csv2root(TString filenames) {
                if (Country.back().Contains("Iran")) Country.back() = "Iran";
                // workaround for Iran
                if (Country.back().Contains("United Kingdom")) Country.back() = "UK";
+               // workaround for France: if Province is empty, then copy Country into it
+               if (Province.back()=="") Province.back() = Country.back();
             } else if (cnt==2) LastUpdated.push_back(tok2);
             else if (cnt==3) {
                int CasesToday = atoi(tok2);
