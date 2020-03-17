@@ -16,7 +16,7 @@ void makeDelta(TH1F *horig, TH1F *htarget) {
 
 void drawMulti() {
    gStyle->SetTimeOffset(0);
-   TFile *f = TFile::Open("data_covid19.root");
+   TFile *f = TFile::Open("data_covid19_corrected.root");
    auto tr = (TTree*) f->Get("tree");
 
    // start date is the first day you want
