@@ -16,14 +16,14 @@ void makeDelta(TH1F *horig, TH1F *htarget) {
 
 void drawMulti() {
    gStyle->SetTimeOffset(0);
-   TFile *f = TFile::Open("data_covid19_corrected.root");
+   TFile *f = TFile::Open("data_covid19.root");
    auto tr = (TTree*) f->Get("tree");
 
    // start date is the first day you want
    TDatime dstart(2020,1,22,0,0,0);
    // TDatime dstart(2020,2,15,0,0,0);
    // end date is the last day you want
-   TDatime dend(2020,3,16,0,0,1); 
+   TDatime dend(2020,3,17,0,0,1); 
 
    TCanvas *c1 = new TCanvas("coronavirus","coronavirus",1280,800);
    c1->Divide(2,2);
