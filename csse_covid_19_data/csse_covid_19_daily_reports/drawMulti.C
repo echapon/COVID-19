@@ -23,7 +23,7 @@ void drawMulti() {
    TDatime dstart(2020,1,22,0,0,0);
    // TDatime dstart(2020,2,15,0,0,0);
    // end date is the last day you want
-   TDatime dend(2020,3,19,0,0,1); 
+   TDatime dend(2020,3,20,0,0,1); 
 
    TCanvas *c1 = new TCanvas("coronavirus","coronavirus",1280,800);
    c1->Divide(2,2);
@@ -192,7 +192,7 @@ void drawMulti() {
    // tr->Draw("date.Convert()>>hDeltaCasesUS","Sum$(DeltaCases*(Country==\"US\"))","hist L same");
    makeDelta(hCasesChina,hDeltaCasesChina); hDeltaCasesChina->Draw("hist L");
    // fix the "bug" in the China delta
-   hDeltaCasesChina->GetYaxis()->SetRangeUser(0,5900); 
+   hDeltaCasesChina->GetYaxis()->SetRangeUser(0,6500); 
    hDeltaCasesChina->Draw("hist L");
    makeDelta(hCasesKorea,hDeltaCasesKorea); hDeltaCasesKorea->Draw("hist L same");
    makeDelta(hCasesJapan,hDeltaCasesJapan); hDeltaCasesJapan->Draw("hist L same");
