@@ -9,5 +9,6 @@ for file in *csv; do
    fi
 done
 # echo $files
-echo rootl -b -q csv2root.C\''("'$files\''")'
-# rootl -b -q csv2root.C'("'$files'")'
+command="root -l -b -q csv2root.C'(\""$files"\")'"
+echo $command
+# $command
