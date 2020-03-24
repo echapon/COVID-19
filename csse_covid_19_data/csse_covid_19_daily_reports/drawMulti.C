@@ -23,7 +23,7 @@ void drawMulti() {
    TDatime dstart(2020,1,22,0,0,0);
    // TDatime dstart(2020,2,15,0,0,0);
    // end date is the last day you want
-   TDatime dend(2020,3,22,0,0,1); 
+   TDatime dend(2020,3,23,0,0,1); 
 
    TCanvas *c1 = new TCanvas("coronavirus","coronavirus",1280,800);
    c1->Divide(2,2);
@@ -186,7 +186,8 @@ void drawMulti() {
    setHistStyle(hDeltaCasesUS, kGreen+2,2);
    setHistStyle(hDeltaCasesUK, kYellow+2,2);
 
-   makeDelta(hCasesItaly,hDeltaCasesItaly); hDeltaCasesItaly->Draw("hist L");
+   makeDelta(hCasesUS,hDeltaCasesUS); hDeltaCasesUS->Draw("hist L");
+   makeDelta(hCasesItaly,hDeltaCasesItaly); hDeltaCasesItaly->Draw("hist L same");
    makeDelta(hCasesChina,hDeltaCasesChina); hDeltaCasesChina->Draw("hist L same");
    makeDelta(hCasesKorea,hDeltaCasesKorea); hDeltaCasesKorea->Draw("hist L same");
    makeDelta(hCasesJapan,hDeltaCasesJapan); hDeltaCasesJapan->Draw("hist L same");
@@ -195,7 +196,6 @@ void drawMulti() {
    makeDelta(hCasesGermany,hDeltaCasesGermany); hDeltaCasesGermany->Draw("hist L same");
    makeDelta(hCasesSwitzerland,hDeltaCasesSwitzerland); hDeltaCasesSwitzerland->Draw("hist L same");
    makeDelta(hCasesSpain,hDeltaCasesSpain); hDeltaCasesSpain->Draw("hist L same");
-   makeDelta(hCasesUS,hDeltaCasesUS); hDeltaCasesUS->Draw("hist L same");
    makeDelta(hCasesUK,hDeltaCasesUK); hDeltaCasesUK->Draw("hist L same");
 
    TLegend *tleg2 = new TLegend(0.590912,0.362665,0.807722,0.894349);

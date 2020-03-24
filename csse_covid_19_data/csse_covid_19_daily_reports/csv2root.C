@@ -11,9 +11,18 @@
 
 using namespace std;
 
+// DEFINITIONS
+//
+// indices: Province/State,Country/Region,Last Update,Confirmed,Deaths,Recovered,Latitude,Longitude
+// old format
+const unsigned int indices_old[8] = {0,1,2,3,4,5,6,7};
+// new format
+const unsigned int indices_new[8] = {2,3,4,7,8,9,5,6};
+
+
 TObjArray *GetColumns(const TString &str)
 {
-   TPRegexp r("\"([\\w\\s,().]+)\",?");
+   TPRegexp r("\"([\\w\\s,().-]+)\",?");
 
    TObjArray *colL = new TObjArray();
    colL->SetOwner();
@@ -41,6 +50,7 @@ void csv2root(TString filenames) {
    // int Cases(0), Deaths(0), Recovered(0), DeltaCases(0), DeltaDeaths(0), DeltaRecovered(0);
    vector<TString> Province, Country, LastUpdated;
    vector<int> Cases, Deaths, Recovered, DeltaCases, DeltaDeaths, DeltaRecovered;
+   vector<float> Latitude,Longitude;
    int totCases(0),totDeaths(0),totRecovered(0);
    TDatime date;
 
@@ -57,10 +67,16 @@ void csv2root(TString filenames) {
    tr.Branch("DeltaCases",&DeltaCases);
    tr.Branch("DeltaDeaths",&DeltaDeaths);
    tr.Branch("DeltaRecovered",&DeltaRecovered);
+   tr.Branch("Latitude",&Latitude);
+   tr.Branch("Longitude",&Longitude);
    tr.Branch("date",&date);
 
    TString tok;
    Ssiz_t from = 0;
+
+   // starting March 23, switch to a new format
+   bool isnewformat = false;
+
    while (filenames.Tokenize(tok, from, " ")) {
       ifstream ifs(tok.Data());
 
@@ -84,8 +100,17 @@ void csv2root(TString filenames) {
       while(ifs.is_open()) {
          ifs.getline(theline,1024);
          TString thelineT(theline);
+
          if (thelineT=="") break;
-         // cout << theline << "EOL" << endl;
+         // is this the first line? if yes, skip it, but use it to tell if this is the new format
+         if (thelineT.Contains("Confirmed,Deaths,Recovered")) {
+            if (thelineT.Contains("FIPS,Admin2")) isnewformat=true;
+            continue;
+         }
+
+         // cout << thelineT.Data() << " " << "EOL" << endl;
+
+         const unsigned int *indices = isnewformat ? indices_new : indices_old;
 
          // the line may need some fixing
          TObjArray *col = GetColumns(thelineT);
@@ -102,10 +127,10 @@ void csv2root(TString filenames) {
          TString tok2;
          Ssiz_t from2 = 0;
          int cnt=0;
-         while (thelineT.Tokenize(tok2, from2, ",")) {
-            // fix for China
-            if (cnt==0) Province.push_back(tok2);
-            else if (cnt==1) {
+
+         while (thelineT.Tokenize(tok2, from2, "[,]")) {
+            if (cnt==indices[0]) Province.push_back(tok2);
+            else if (cnt==indices[1]) {
                Country.push_back(tok2);
                // workaround for China
                if (Country.back()=="Mainland China") Country.back() = "China";
@@ -117,26 +142,31 @@ void csv2root(TString filenames) {
                if (Country.back().Contains("United Kingdom")) Country.back() = "UK";
                // workaround for France: if Province is empty, then copy Country into it
                if (Province.back()=="") Province.back() = Country.back();
-            } else if (cnt==2) LastUpdated.push_back(tok2);
-            else if (cnt==3) {
+            } else if (cnt==indices[2]) LastUpdated.push_back(tok2);
+            else if (cnt==indices[3]) {
+               if (tok2=="") tok2="0";
                int CasesToday = atoi(tok2);
                totCases += CasesToday;
                DeltaCases.push_back(CasesToday - prevCases[Province.back()+Country.back()]);
                Cases.push_back(CasesToday);
                prevCases[Province.back()+Country.back()] = CasesToday;
-            } else if (cnt==4) {
+            } else if (cnt==indices[4]) {
+               if (tok2=="") tok2="0";
                int DeathsToday = atoi(tok2);
                totDeaths += DeathsToday;
                DeltaDeaths.push_back(DeathsToday - prevDeaths[Province.back()+Country.back()]);
                Deaths.push_back(DeathsToday);
                prevDeaths[Province.back()+Country.back()] = DeathsToday;
-            } else if (cnt==5) {
+            } else if (cnt==indices[5]) {
+               if (tok2=="") tok2="0";
                int RecoveredToday = atoi(tok2);
                totRecovered += RecoveredToday;
                DeltaRecovered.push_back(RecoveredToday - prevRecovered[Province.back()+Country.back()]);
                Recovered.push_back(RecoveredToday);
                prevRecovered[Province.back()+Country.back()] = RecoveredToday;
-            }
+            } else if (cnt==indices[6]) Latitude.push_back(atof(tok2));
+            else if (cnt==indices[7]) Longitude.push_back(atof(tok2));
+
             cnt++;
          }
          if (thelineT.Contains("\"") )
