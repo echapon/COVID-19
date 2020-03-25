@@ -170,7 +170,7 @@ void csv2root(TString filenames) {
             cnt++;
          }
          if (thelineT.Contains("\"") )
-               cout << Province.back() << " " << Country.back() << " " << LastUpdated.back() << " " << Cases.back() << " " << Deaths.back() << " " << Recovered.back() << " " << DeltaCases.back() << " " << DeltaDeaths.back() << " " << DeltaRecovered.back() << endl;
+               cout << Province.back() << "#" << Country.back() << "#" << LastUpdated.back() << "#" << Cases.back() << "#" << Deaths.back() << "#" << Recovered.back() << "#" << DeltaCases.back() << "#" << DeltaDeaths.back() << "#" << DeltaRecovered.back() << endl;
 
       }
       cout << parsedate.Data() << ": " << totCases << ", " << totDeaths << ", " << totRecovered << endl;

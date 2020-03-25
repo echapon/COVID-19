@@ -650,7 +650,7 @@
 37127,Nash,North Carolina,US,3/22/20 23:45,35.96575634,-77.98422508,1,0,0,0,"Nash, North Carolina, US"
 37165,Scotland,North Carolina,US,3/22/20 23:45,34.8386299,-79.4757978,1,0,0,0,"Scotland, North Carolina, US"
 24031,Montgomery,Maryland,US,3/22/20 23:45,39.13676329,-77.20358245,83,1,0,0,"Montgomery, Maryland, US"
-24033,Prince George's,Maryland,US,3/22/20 23:45,38.83070039,-76.8496441,40,1,0,0,"Prince George's, Maryland, US"
+24033,Prince George s,Maryland,US,3/22/20 23:45,38.83070039,-76.8496441,40,1,0,0,"Prince George s, Maryland, US"
 24005,Baltimore,Maryland,US,3/22/20 23:45,39.45784712,-76.62911955,28,1,0,0,"Baltimore, Maryland, US"
 24510,Baltimore City,Maryland,US,3/22/20 23:45,39.30211911,-76.61151012,24,0,0,0,"Baltimore City, Maryland, US"
 24027,Howard,Maryland,US,3/22/20 23:45,39.25305293,-76.93126208,24,0,0,0,"Howard, Maryland, US"
@@ -664,10 +664,10 @@
 24041,Talbot,Maryland,US,3/22/20 23:45,38.76618159,-76.10882561,1,0,0,0,"Talbot, Maryland, US"
 24021,Frederick,Maryland,US,3/22/20 23:45,39.47296601,-77.39999394,1,0,0,0,"Frederick, Maryland, US"
 24011,Caroline,Maryland,US,3/22/20 23:45,38.87172293,-75.82904158,1,0,0,0,"Caroline, Maryland, US"
-24035,Queen Anne's,Maryland,US,3/22/20 23:45,39.06198912,-76.03530977,1,0,0,0,"Queen Anne's, Maryland, US"
+24035,Queen Anne s,Maryland,US,3/22/20 23:45,39.06198912,-76.03530977,1,0,0,0,"Queen Anne s, Maryland, US"
 24039,Somerset,Maryland,US,3/22/20 23:45,38.1163542,-75.75118623,1,0,0,0,"Somerset, Maryland, US"
 24043,Washington,Maryland,US,3/22/20 23:45,39.60835778,-77.82002295,1,0,0,0,"Washington, Maryland, US"
-24037,St. Mary's,Maryland,US,3/22/20 23:45,38.30058422,-76.6062928,1,0,0,0,"St. Mary's, Maryland, US"
+24037,St. Mary s,Maryland,US,3/22/20 23:45,38.30058422,-76.6062928,1,0,0,0,"St. Mary s, Maryland, US"
 51095,James City,Virginia,US,3/22/20 23:45,37.31156958,-76.76950618,32,2,0,0,"James City, Virginia, US"
 51059,Fairfax,Virginia,US,3/22/20 23:45,38.83677558,-77.27565836,31,1,0,0,"Fairfax, Virginia, US"
 51013,Arlington,Virginia,US,3/22/20 23:45,38.8767675,-77.10139853,26,0,0,0,"Arlington, Virginia, US"
@@ -1676,7 +1676,7 @@
 19133,Monona,Iowa,US,3/22/20 23:45,42.05220391,-95.95743843,0,0,0,0,"Monona, Iowa, US"
 19135,Monroe,Iowa,US,3/22/20 23:45,41.02988815,-92.8690667,0,0,0,0,"Monroe, Iowa, US"
 19137,Montgomery,Iowa,US,3/22/20 23:45,41.03018714,-95.15642896,0,0,0,0,"Montgomery, Iowa, US"
-19141,O'Brien,Iowa,US,3/22/20 23:45,43.08310673,-95.62474482,0,0,0,0,"O'Brien, Iowa, US"
+19141,O Brien,Iowa,US,3/22/20 23:45,43.08310673,-95.62474482,0,0,0,0,"O Brien, Iowa, US"
 19143,Osceola,Iowa,US,3/22/20 23:45,43.37824276,-95.62422844,0,0,0,0,"Osceola, Iowa, US"
 19145,Page,Iowa,US,3/22/20 23:45,40.7393172,-95.1497813,0,0,0,0,"Page, Iowa, US"
 19147,Palo Alto,Iowa,US,3/22/20 23:45,43.08193849,-94.67824621,0,0,0,0,"Palo Alto, Iowa, US"
@@ -2320,7 +2320,7 @@
 35007,Colfax,New Mexico,US,3/22/20 23:45,36.60569702,-104.6472674,0,0,0,0,"Colfax, New Mexico, US"
 35009,Curry,New Mexico,US,3/22/20 23:45,34.57421077,-103.3468876,0,0,0,0,"Curry, New Mexico, US"
 35011,De Baca,New Mexico,US,3/22/20 23:45,34.34274529,-104.4117842,0,0,0,0,"De Baca, New Mexico, US"
-35013,Doña Ana,New Mexico,US,3/22/20 23:45,32.35275771,-106.8329387,0,0,0,0,"Doña Ana, New Mexico, US"
+35013,Dona Ana,New Mexico,US,3/22/20 23:45,32.35275771,-106.8329387,0,0,0,0,"Dona Ana, New Mexico, US"
 35015,Eddy,New Mexico,US,3/22/20 23:45,32.47167456,-104.3053527,0,0,0,0,"Eddy, New Mexico, US"
 35017,Grant,New Mexico,US,3/22/20 23:45,32.73911281,-108.3827845,0,0,0,0,"Grant, New Mexico, US"
 35019,Guadalupe,New Mexico,US,3/22/20 23:45,34.86319296,-104.790669,0,0,0,0,"Guadalupe, New Mexico, US"
@@ -3354,7 +3354,7 @@
 ,,Gibraltar,United Kingdom,3/22/20 23:45,36.1408,-5.3536,15,0,2,13,"Gibraltar, United Kingdom"
 ,,,Kenya,3/22/20 23:45,-0.0236,37.9062,15,0,0,15,Kenya
 ,,,Barbados,3/22/20 23:45,13.1939,-59.5432,14,0,0,14,Barbados
-,,,Cote d'Ivoire,3/22/20 23:45,7.54,-5.5471,14,0,1,13,Cote d'Ivoire
+,,,Cote d Ivoire,3/22/20 23:45,7.54,-5.5471,14,0,1,13,Cote d Ivoire
 ,,,Kyrgyzstan,3/22/20 23:45,41.20438,74.766098,14,0,0,14,Kyrgyzstan
 ,,,Maldives,3/22/20 23:45,3.2028,73.2207,13,0,3,10,Maldives
 ,,,Tanzania,3/22/20 23:45,-6.369028,34.888822,12,0,0,12,Tanzania
