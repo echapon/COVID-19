@@ -2,6 +2,7 @@
 #include "TTree.h"
 #include "TString.h"
 #include "TDatime.h"
+#include "TPRegexp.h"
 
 #include <fstream>
 #include <algorithm>
@@ -85,7 +86,7 @@ void csv2root(TString filenames) {
       parsedate.ReplaceAll(".csv","");
       TString tokdate;
       Ssiz_t fromdate = 0;
-      int day,month,year;
+      int day=1,month=1,year=2000;
       int cntdate(0);
       while (parsedate.Tokenize(tokdate, fromdate, "-")) {
          if (cntdate==0) month = atoi(tokdate.Data());
@@ -126,7 +127,7 @@ void csv2root(TString filenames) {
 
          TString tok2;
          Ssiz_t from2 = 0;
-         int cnt=0;
+         unsigned int cnt=0;
 
          while (thelineT.Tokenize(tok2, from2, "[,]")) {
             if (cnt==indices[0]) Province.push_back(tok2);
