@@ -4,7 +4,7 @@ void fithist(TString var="DeltaCases", TString country="China") {
    auto tr = (TTree*) f->Get("tree");
 
    TDatime dstart(2020,1,22,0,0,0);
-   TDatime dend(2020,3,26,0,0,1);
+   TDatime dend(2020,3,27,0,0,1);
    auto h = new TH1F("h","",(dend.Convert()-dstart.Convert())/(3600*24)+1,dstart.Convert(),dend.Convert());
    h->GetXaxis()->SetTimeDisplay(1);
    h->GetXaxis()->SetTimeFormat("%m/%d");
