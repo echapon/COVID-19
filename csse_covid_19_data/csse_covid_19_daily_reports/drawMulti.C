@@ -126,9 +126,8 @@ void drawMulti() {
    setHistStyle(hCasesUS, kGreen+2,2);
    setHistStyle(hCasesUK, kYellow+2,2);
 
-   tr->Draw("date.Convert()>>hCasesChina","Sum$(Cases*(Country==\"China\"))","hist L");
-   hCasesChina->GetYaxis()->SetRangeUser(15,1.3e5);
-   hCasesChina->Draw("hist L");
+   tr->Draw("date.Convert()>>hCasesUS","Sum$(Cases*(Country==\"US\"))","hist L");
+   tr->Draw("date.Convert()>>hCasesChina","Sum$(Cases*(Country==\"China\"))","hist L same");
    tr->Draw("date.Convert()>>hCasesKorea","Sum$(Cases*(Country==\"South Korea\"))","hist L same");
    tr->Draw("date.Convert()>>hCasesJapan","Sum$(Cases*(Country==\"Japan\"))","hist L same");
    tr->Draw("date.Convert()>>hCasesIran","Sum$(Cases*(Country==\"Iran\"))","hist L same");
@@ -137,10 +136,9 @@ void drawMulti() {
    tr->Draw("date.Convert()>>hCasesGermany","Sum$(Cases*(Country==\"Germany\"))","hist L same");
    tr->Draw("date.Convert()>>hCasesSwitzerland","Sum$(Cases*(Country==\"Switzerland\"))","hist L same");
    tr->Draw("date.Convert()>>hCasesSpain","Sum$(Cases*(Country==\"Spain\"))","hist L same");
-   tr->Draw("date.Convert()>>hCasesUS","Sum$(Cases*(Country==\"US\"))","hist L same");
    tr->Draw("date.Convert()>>hCasesUK","Sum$(Cases*(Country==\"UK\"))","hist L same");
 
-   TLegend *tleg = new TLegend(0.349211,0.236871,0.567651,0.771267);
+   TLegend *tleg = new TLegend(0.22,.13,.43,.67);
    tleg->SetBorderSize(0);
    tleg->AddEntry(hCasesChina,"China cases","L");
    tleg->AddEntry(hCasesKorea,"Korea cases","L");
