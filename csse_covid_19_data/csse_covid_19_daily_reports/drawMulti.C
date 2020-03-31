@@ -19,11 +19,11 @@ void drawMulti() {
    TFile *f = TFile::Open("data_covid19.root");
    auto tr = (TTree*) f->Get("tree");
 
-   // start date is the first day you want
-   TDatime dstart(2020,1,22,0,0,0);
-   // TDatime dstart(2020,2,15,0,0,0);
-   // end date is the last day you want
-   TDatime dend(2020,3,29,0,0,1); 
+   // start date is the first day you want, minus 12 hours
+   TDatime dstart(2020,1,21,12,0,0);
+   // end date is the last day you want, as 12:00:00
+   TDatime dend(2020,3,30,12,0,0); 
+   int ndays = TDatime::GetLegalGlobalDayFromDate(dend.GetDate()) - TDatime::GetLegalGlobalDayFromDate(dstart.GetDate());
 
    TCanvas *c1 = new TCanvas("coronavirus","coronavirus",1280,800);
    c1->Divide(2,2);
@@ -33,10 +33,10 @@ void drawMulti() {
    ///////////////////////
 
    c1->cd(1);
-   auto hCasesWorld = new TH1F("hCasesWorld","Cases (World)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeathsWorld = new TH1F("hDeathsWorld","Deaths (World)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hRecoveredWorld = new TH1F("hRecoveredWorld","Recovered (World)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hCasesActiveWorld = new TH1F("hCasesActiveWorld","CasesActive (World)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
+   auto hCasesWorld = new TH1F("hCasesWorld","Cases (World)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeathsWorld = new TH1F("hDeathsWorld","Deaths (World)",ndays,dstart.Convert(),dend.Convert());
+   auto hRecoveredWorld = new TH1F("hRecoveredWorld","Recovered (World)",ndays,dstart.Convert(),dend.Convert());
+   auto hCasesActiveWorld = new TH1F("hCasesActiveWorld","CasesActive (World)",ndays,dstart.Convert(),dend.Convert());
 
    setHistStyle(hCasesWorld, kBlack);
    setHistStyle(hDeathsWorld, kRed);
@@ -65,10 +65,10 @@ void drawMulti() {
    ///////////////////////
 
    c1->cd(2);
-   auto hDeltaCasesWorld = new TH1F("hDeltaCasesWorld","DeltaCases (World)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeltaDeathsWorld = new TH1F("hDeltaDeathsWorld","DeltaDeaths (World)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeltaRecoveredWorld = new TH1F("hDeltaRecoveredWorld","DeltaRecovered (World)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeltaCasesActiveWorld = new TH1F("hDeltaCasesActiveWorld","DeltaCasesActive (World)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
+   auto hDeltaCasesWorld = new TH1F("hDeltaCasesWorld","DeltaCases (World)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeltaDeathsWorld = new TH1F("hDeltaDeathsWorld","DeltaDeaths (World)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeltaRecoveredWorld = new TH1F("hDeltaRecoveredWorld","DeltaRecovered (World)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeltaCasesActiveWorld = new TH1F("hDeltaCasesActiveWorld","DeltaCasesActive (World)",ndays,dstart.Convert(),dend.Convert());
 
    setHistStyle(hDeltaCasesWorld, kBlack);
    setHistStyle(hDeltaDeathsWorld, kRed);
@@ -102,17 +102,17 @@ void drawMulti() {
 
    c1->cd(3);
    gPad->SetLogy();
-   auto hCasesChina = new TH1F("hCasesChina","Cases (China)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hCasesKorea = new TH1F("hCasesKorea","Cases (Korea)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hCasesJapan = new TH1F("hCasesJapan","Cases (Japan)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hCasesIran = new TH1F("hCasesIran","Cases (Iran)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hCasesItaly = new TH1F("hCasesItaly","Cases (Italy)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hCasesFrance = new TH1F("hCasesFrance","Cases (France)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hCasesGermany = new TH1F("hCasesGermany","Cases (Germany)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hCasesSwitzerland = new TH1F("hCasesSwitzerland","Cases (Switzerland)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hCasesSpain = new TH1F("hCasesSpain","Cases (Spain)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hCasesUS = new TH1F("hCasesUS","Cases (US)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hCasesUK = new TH1F("hCasesUK","Cases (UK)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
+   auto hCasesChina = new TH1F("hCasesChina","Cases (China)",ndays,dstart.Convert(),dend.Convert());
+   auto hCasesKorea = new TH1F("hCasesKorea","Cases (Korea)",ndays,dstart.Convert(),dend.Convert());
+   auto hCasesJapan = new TH1F("hCasesJapan","Cases (Japan)",ndays,dstart.Convert(),dend.Convert());
+   auto hCasesIran = new TH1F("hCasesIran","Cases (Iran)",ndays,dstart.Convert(),dend.Convert());
+   auto hCasesItaly = new TH1F("hCasesItaly","Cases (Italy)",ndays,dstart.Convert(),dend.Convert());
+   auto hCasesFrance = new TH1F("hCasesFrance","Cases (France)",ndays,dstart.Convert(),dend.Convert());
+   auto hCasesGermany = new TH1F("hCasesGermany","Cases (Germany)",ndays,dstart.Convert(),dend.Convert());
+   auto hCasesSwitzerland = new TH1F("hCasesSwitzerland","Cases (Switzerland)",ndays,dstart.Convert(),dend.Convert());
+   auto hCasesSpain = new TH1F("hCasesSpain","Cases (Spain)",ndays,dstart.Convert(),dend.Convert());
+   auto hCasesUS = new TH1F("hCasesUS","Cases (US)",ndays,dstart.Convert(),dend.Convert());
+   auto hCasesUK = new TH1F("hCasesUK","Cases (UK)",ndays,dstart.Convert(),dend.Convert());
 
    setHistStyle(hCasesChina, kBlack);
    setHistStyle(hCasesKorea, kRed);
@@ -162,17 +162,17 @@ void drawMulti() {
 
    c1->cd(4);
    // gPad->SetLogy();
-   auto hDeltaCasesChina = new TH1F("hDeltaCasesChina","DeltaCases (China)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeltaCasesKorea = new TH1F("hDeltaCasesKorea","DeltaCases (Korea)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeltaCasesJapan = new TH1F("hDeltaCasesJapan","DeltaCases (Japan)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeltaCasesIran = new TH1F("hDeltaCasesIran","DeltaCases (Iran)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeltaCasesItaly = new TH1F("hDeltaCasesItaly","DeltaCases (Italy)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeltaCasesFrance = new TH1F("hDeltaCasesFrance","DeltaCases (France)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeltaCasesGermany = new TH1F("hDeltaCasesGermany","DeltaCases (Germany)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeltaCasesSwitzerland = new TH1F("hDeltaCasesSwitzerland","DeltaCases (Switzerland)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeltaCasesSpain = new TH1F("hDeltaCasesSpain","DeltaCases (Spain)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeltaCasesUS = new TH1F("hDeltaCasesUS","DeltaCases (US)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeltaCasesUK = new TH1F("hDeltaCasesUK","DeltaCases (UK)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
+   auto hDeltaCasesChina = new TH1F("hDeltaCasesChina","DeltaCases (China)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeltaCasesKorea = new TH1F("hDeltaCasesKorea","DeltaCases (Korea)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeltaCasesJapan = new TH1F("hDeltaCasesJapan","DeltaCases (Japan)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeltaCasesIran = new TH1F("hDeltaCasesIran","DeltaCases (Iran)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeltaCasesItaly = new TH1F("hDeltaCasesItaly","DeltaCases (Italy)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeltaCasesFrance = new TH1F("hDeltaCasesFrance","DeltaCases (France)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeltaCasesGermany = new TH1F("hDeltaCasesGermany","DeltaCases (Germany)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeltaCasesSwitzerland = new TH1F("hDeltaCasesSwitzerland","DeltaCases (Switzerland)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeltaCasesSpain = new TH1F("hDeltaCasesSpain","DeltaCases (Spain)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeltaCasesUS = new TH1F("hDeltaCasesUS","DeltaCases (US)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeltaCasesUK = new TH1F("hDeltaCasesUK","DeltaCases (UK)",ndays,dstart.Convert(),dend.Convert());
 
    setHistStyle(hDeltaCasesChina, kBlack);
    setHistStyle(hDeltaCasesKorea, kRed);
@@ -234,17 +234,17 @@ void drawMulti() {
 
    c2->cd(1);
    gPad->SetLogy();
-   auto hDeathsChina = new TH1F("hDeathsChina","Deaths (China)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeathsKorea = new TH1F("hDeathsKorea","Deaths (Korea)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeathsJapan = new TH1F("hDeathsJapan","Deaths (Japan)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeathsIran = new TH1F("hDeathsIran","Deaths (Iran)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeathsItaly = new TH1F("hDeathsItaly","Deaths (Italy)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeathsFrance = new TH1F("hDeathsFrance","Deaths (France)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeathsGermany = new TH1F("hDeathsGermany","Deaths (Germany)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeathsSwitzerland = new TH1F("hDeathsSwitzerland","Deaths (Switzerland)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeathsSpain = new TH1F("hDeathsSpain","Deaths (Spain)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeathsUS = new TH1F("hDeathsUS","Deaths (US)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeathsUK = new TH1F("hDeathsUK","Deaths (UK)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
+   auto hDeathsChina = new TH1F("hDeathsChina","Deaths (China)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeathsKorea = new TH1F("hDeathsKorea","Deaths (Korea)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeathsJapan = new TH1F("hDeathsJapan","Deaths (Japan)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeathsIran = new TH1F("hDeathsIran","Deaths (Iran)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeathsItaly = new TH1F("hDeathsItaly","Deaths (Italy)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeathsFrance = new TH1F("hDeathsFrance","Deaths (France)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeathsGermany = new TH1F("hDeathsGermany","Deaths (Germany)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeathsSwitzerland = new TH1F("hDeathsSwitzerland","Deaths (Switzerland)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeathsSpain = new TH1F("hDeathsSpain","Deaths (Spain)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeathsUS = new TH1F("hDeathsUS","Deaths (US)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeathsUK = new TH1F("hDeathsUK","Deaths (UK)",ndays,dstart.Convert(),dend.Convert());
 
    setHistStyle(hDeathsChina, kBlack);
    setHistStyle(hDeathsKorea, kRed);
@@ -292,17 +292,17 @@ void drawMulti() {
 
    c2->cd(2);
    // gPad->SetLogy();
-   auto hDeltaDeathsChina = new TH1F("hDeltaDeathsChina","DeltaDeaths (China)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeltaDeathsKorea = new TH1F("hDeltaDeathsKorea","DeltaDeaths (Korea)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeltaDeathsJapan = new TH1F("hDeltaDeathsJapan","DeltaDeaths (Japan)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeltaDeathsIran = new TH1F("hDeltaDeathsIran","DeltaDeaths (Iran)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeltaDeathsItaly = new TH1F("hDeltaDeathsItaly","DeltaDeaths (Italy)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeltaDeathsFrance = new TH1F("hDeltaDeathsFrance","DeltaDeaths (France)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeltaDeathsGermany = new TH1F("hDeltaDeathsGermany","DeltaDeaths (Germany)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeltaDeathsSwitzerland = new TH1F("hDeltaDeathsSwitzerland","DeltaDeaths (Switzerland)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeltaDeathsSpain = new TH1F("hDeltaDeathsSpain","DeltaDeaths (Spain)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeltaDeathsUS = new TH1F("hDeltaDeathsUS","DeltaDeaths (US)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
-   auto hDeltaDeathsUK = new TH1F("hDeltaDeathsUK","DeltaDeaths (UK)",(dend.Convert()-dstart.Convert())/(3600*24),dstart.Convert(),dend.Convert());
+   auto hDeltaDeathsChina = new TH1F("hDeltaDeathsChina","DeltaDeaths (China)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeltaDeathsKorea = new TH1F("hDeltaDeathsKorea","DeltaDeaths (Korea)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeltaDeathsJapan = new TH1F("hDeltaDeathsJapan","DeltaDeaths (Japan)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeltaDeathsIran = new TH1F("hDeltaDeathsIran","DeltaDeaths (Iran)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeltaDeathsItaly = new TH1F("hDeltaDeathsItaly","DeltaDeaths (Italy)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeltaDeathsFrance = new TH1F("hDeltaDeathsFrance","DeltaDeaths (France)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeltaDeathsGermany = new TH1F("hDeltaDeathsGermany","DeltaDeaths (Germany)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeltaDeathsSwitzerland = new TH1F("hDeltaDeathsSwitzerland","DeltaDeaths (Switzerland)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeltaDeathsSpain = new TH1F("hDeltaDeathsSpain","DeltaDeaths (Spain)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeltaDeathsUS = new TH1F("hDeltaDeathsUS","DeltaDeaths (US)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeltaDeathsUK = new TH1F("hDeltaDeathsUK","DeltaDeaths (UK)",ndays,dstart.Convert(),dend.Convert());
 
    setHistStyle(hDeltaDeathsChina, kBlack);
    setHistStyle(hDeltaDeathsKorea, kRed);
