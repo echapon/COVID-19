@@ -1583,7 +1583,7 @@ FIPS,Admin2,Province_State,Country_Region,Last_Update,Lat,Long_,Confirmed,Deaths
 54077,Preston,West Virginia,US,2020-03-31 23:43:56,39.46770987,-79.66712803,3,0,0,0,"Preston, West Virginia, US"
 51147,Prince Edward,Virginia,US,2020-03-31 23:43:56,37.22554789,-78.43597949,2,0,0,0,"Prince Edward, Virginia, US"
 51149,Prince George,Virginia,US,2020-03-31 23:43:56,37.18497668,-77.22922187,7,0,0,0,"Prince George, Virginia, US"
-24033,Prince George's,Maryland,US,2020-03-31 23:43:56,38.83070039,-76.8496441,341,7,0,0,"Prince George's, Maryland, US"
+24033,Prince George s,Maryland,US,2020-03-31 23:43:56,38.83070039,-76.8496441,341,7,0,0,"Prince George s, Maryland, US"
 51153,Prince William,Virginia,US,2020-03-31 23:43:56,38.70916224,-77.48713689,94,1,0,0,"Prince William, Virginia, US"
 44007,Providence,Rhode Island,US,2020-03-31 23:43:56,41.87064746,-71.57753536,208,0,0,0,"Providence, Rhode Island, US"
 08101,Pueblo,Colorado,US,2020-03-31 23:43:56,38.17359144,-104.5127437,21,2,0,0,"Pueblo, Colorado, US"
@@ -1596,7 +1596,7 @@ FIPS,Admin2,Province_State,Country_Region,Last_Update,Lat,Long_,Confirmed,Deaths
 36079,Putnam,New York,US,2020-03-31 23:43:56,41.42630093,-73.74965532,167,0,0,0,"Putnam, New York, US"
 47141,Putnam,Tennessee,US,2020-03-31 23:43:56,36.14005459,-85.50646123,24,0,0,0,"Putnam, Tennessee, US"
 54079,Putnam,West Virginia,US,2020-03-31 23:43:56,38.50782345,-81.9082131,4,0,0,0,"Putnam, West Virginia, US"
-24035,Queen Anne's,Maryland,US,2020-03-31 23:43:56,39.06198912,-76.03530977,4,0,0,0,"Queen Anne's, Maryland, US"
+24035,Queen Anne s,Maryland,US,2020-03-31 23:43:56,39.06198912,-76.03530977,4,0,0,0,"Queen Anne s, Maryland, US"
 28119,Quitman,Mississippi,US,2020-03-31 23:43:56,34.25157572,-90.28908,3,0,0,0,"Quitman, Mississippi, US"
 13241,Rabun,Georgia,US,2020-03-31 23:43:56,34.88389445,-83.40304637,2,0,0,0,"Rabun, Georgia, US"
 55101,Racine,Wisconsin,US,2020-03-31 23:43:56,42.74753117,-88.05941254,26,0,0,0,"Racine, Wisconsin, US"
@@ -1804,7 +1804,7 @@ FIPS,Admin2,Province_State,Country_Region,Last_Update,Lat,Long_,Confirmed,Deaths
 12111,St. Lucie,Florida,US,2020-03-31 23:43:56,27.37763908,-80.47106649,38,2,0,0,"St. Lucie, Florida, US"
 22099,St. Martin,Louisiana,US,2020-03-31 23:43:56,30.13112107,-91.61403569,32,3,0,0,"St. Martin, Louisiana, US"
 22101,St. Mary,Louisiana,US,2020-03-31 23:43:56,29.69262097,-91.44702164,22,0,0,0,"St. Mary, Louisiana, US"
-24037,St. Mary's,Maryland,US,2020-03-31 23:43:56,38.30058422,-76.60629279999998,15,0,0,0,"St. Mary's, Maryland, US"
+24037,St. Mary s,Maryland,US,2020-03-31 23:43:56,38.30058422,-76.60629279999998,15,0,0,0,"St. Mary s, Maryland, US"
 22103,St. Tammany,Louisiana,US,2020-03-31 23:43:56,30.40942847,-89.95642711,220,4,0,0,"St. Tammany, Louisiana, US"
 20185,Stafford,Kansas,US,2020-03-31 23:43:56,38.03100851,-98.71762001,1,0,0,0,"Stafford, Kansas, US"
 51179,Stafford,Virginia,US,2020-03-31 23:43:56,38.41758738,-77.45917053,24,0,0,0,"Stafford, Virginia, US"
@@ -2295,7 +2295,7 @@ FIPS,Admin2,Province_State,Country_Region,Last_Update,Lat,Long_,Confirmed,Deaths
 ,,,Congo (Brazzaville),2020-03-31 23:43:43,-4.2634,15.2832,19,0,0,19,Congo (Brazzaville)
 ,,,Congo (Kinshasa),2020-03-31 23:43:43,-4.322447,15.307045,98,8,2,88,Congo (Kinshasa)
 ,,,Costa Rica,2020-03-31 23:43:43,9.7489,-83.7534,347,2,4,341,Costa Rica
-,,,Cote d'Ivoire,2020-03-31 23:43:43,7.54,-5.5471,179,1,7,171,Cote d'Ivoire
+,,,Cote d Ivoire,2020-03-31 23:43:43,7.54,-5.5471,179,1,7,171,Cote d Ivoire
 ,,,Croatia,2020-03-31 23:43:43,45.1,15.2,867,6,67,794,Croatia
 ,,,Cuba,2020-03-31 23:43:43,21.521757,-77.78116700000002,186,6,8,172,Cuba
 ,,,Cyprus,2020-03-31 23:43:43,35.1264,33.4299,262,8,23,231,Cyprus
