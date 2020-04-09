@@ -22,7 +22,7 @@ void drawMulti() {
    // start date is the first day you want, minus 12 hours
    TDatime dstart(2020,1,21,12,0,0);
    // end date is the last day you want, as 12:00:00
-   TDatime dend(2020,4,7,12,0,0); 
+   TDatime dend(2020,4,8,12,0,0); 
    int ndays = TDatime::GetLegalGlobalDayFromDate(dend.GetDate()) - TDatime::GetLegalGlobalDayFromDate(dstart.GetDate());
 
    TCanvas *c1 = new TCanvas("coronavirus","coronavirus",1280,800);
@@ -314,7 +314,8 @@ void drawMulti() {
    setHistStyle(hDeltaDeathsUS, kGreen+2,2);
    setHistStyle(hDeltaDeathsUK, kYellow+2,2);
 
-   makeDelta(hDeathsFrance,hDeltaDeathsFrance); hDeltaDeathsFrance->Draw("hist L");
+   makeDelta(hDeathsUS,hDeltaDeathsUS); hDeltaDeathsUS->Draw("hist L");
+   makeDelta(hDeathsFrance,hDeltaDeathsFrance); hDeltaDeathsFrance->Draw("hist L same");
    makeDelta(hDeathsItaly,hDeltaDeathsItaly); hDeltaDeathsItaly->Draw("hist L same");
    makeDelta(hDeathsChina,hDeltaDeathsChina); hDeltaDeathsChina->Draw("hist L same");
    makeDelta(hDeathsKorea,hDeltaDeathsKorea); hDeltaDeathsKorea->Draw("hist L same");
@@ -323,7 +324,6 @@ void drawMulti() {
    makeDelta(hDeathsGermany,hDeltaDeathsGermany); hDeltaDeathsGermany->Draw("hist L same");
    makeDelta(hDeathsSwitzerland,hDeltaDeathsSwitzerland); hDeltaDeathsSwitzerland->Draw("hist L same");
    makeDelta(hDeathsSpain,hDeltaDeathsSpain); hDeltaDeathsSpain->Draw("hist L same");
-   makeDelta(hDeathsUS,hDeltaDeathsUS); hDeltaDeathsUS->Draw("hist L same");
    makeDelta(hDeathsUK,hDeltaDeathsUK); hDeltaDeathsUK->Draw("hist L same");
 
    TLegend *tlegd2 = new TLegend(0.19,0.362665,0.40,0.894349);
