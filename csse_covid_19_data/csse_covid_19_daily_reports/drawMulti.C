@@ -22,7 +22,7 @@ void drawMulti() {
    // start date is the first day you want, minus 12 hours
    TDatime dstart(2020,1,21,12,0,0);
    // end date is the last day you want, as 12:00:00
-   TDatime dend(2020,4,8,12,0,0); 
+   TDatime dend(2020,4,9,12,0,0); 
    int ndays = TDatime::GetLegalGlobalDayFromDate(dend.GetDate()) - TDatime::GetLegalGlobalDayFromDate(dstart.GetDate());
 
    TCanvas *c1 = new TCanvas("coronavirus","coronavirus",1280,800);
@@ -196,7 +196,7 @@ void drawMulti() {
    makeDelta(hCasesSpain,hDeltaCasesSpain); hDeltaCasesSpain->Draw("hist L same");
    makeDelta(hCasesUK,hDeltaCasesUK); hDeltaCasesUK->Draw("hist L same");
 
-   TLegend *tleg2 = new TLegend(0.590912,0.362665,0.807722,0.894349);
+   TLegend *tleg2 = new TLegend(0.44,0.32,0.65,0.85);
    tleg2->SetBorderSize(0);
    tleg2->AddEntry(hDeltaCasesChina,"China #Delta cases","L");
    tleg2->AddEntry(hDeltaCasesKorea,"Korea #Delta cases","L");
