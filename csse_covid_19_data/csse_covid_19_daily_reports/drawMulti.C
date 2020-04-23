@@ -22,7 +22,7 @@ void drawMulti() {
    // start date is the first day you want, minus 12 hours
    TDatime dstart(2020,1,21,12,0,0);
    // end date is the last day you want, as 12:00:00
-   TDatime dend(2020,4,21,12,0,0); 
+   TDatime dend(2020,4,22,12,0,0); 
    int ndays = TDatime::GetLegalGlobalDayFromDate(dend.GetDate()) - TDatime::GetLegalGlobalDayFromDate(dstart.GetDate());
 
    TCanvas *c1 = new TCanvas("coronavirus","coronavirus",1280,800);
@@ -256,7 +256,8 @@ void drawMulti() {
    setHistStyle(hDeathsUS, kGreen+2,2);
    setHistStyle(hDeathsUK, kYellow+2,2);
 
-   tr->Draw("date.Convert()>>hDeathsItaly","Sum$(Deaths*(Country==\"Italy\"))","hist L");
+   tr->Draw("date.Convert()>>hDeathsUS","Sum$(Deaths*(Country==\"US\"))","hist L");
+   tr->Draw("date.Convert()>>hDeathsItaly","Sum$(Deaths*(Country==\"Italy\"))","hist L same");
    tr->Draw("date.Convert()>>hDeathsChina","Sum$(Deaths*(Country==\"China\"))","hist L same");
    tr->Draw("date.Convert()>>hDeathsKorea","Sum$(Deaths*(Country==\"South Korea\"))","hist L same");
    tr->Draw("date.Convert()>>hDeathsJapan","Sum$(Deaths*(Country==\"Japan\"))","hist L same");
@@ -265,7 +266,6 @@ void drawMulti() {
    tr->Draw("date.Convert()>>hDeathsGermany","Sum$(Deaths*(Country==\"Germany\"))","hist L same");
    tr->Draw("date.Convert()>>hDeathsSwitzerland","Sum$(Deaths*(Country==\"Switzerland\"))","hist L same");
    tr->Draw("date.Convert()>>hDeathsSpain","Sum$(Deaths*(Country==\"Spain\"))","hist L same");
-   tr->Draw("date.Convert()>>hDeathsUS","Sum$(Deaths*(Country==\"US\"))","hist L same");
    tr->Draw("date.Convert()>>hDeathsUK","Sum$(Deaths*(Country==\"UK\"))","hist L same");
 
    TLegend *tlegd = new TLegend(0.349211,0.236871,0.567651,0.771267);
