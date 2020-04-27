@@ -22,7 +22,7 @@ void drawMulti() {
    // start date is the first day you want, minus 12 hours
    TDatime dstart(2020,1,21,12,0,0);
    // end date is the last day you want, as 12:00:00
-   TDatime dend(2020,4,25,12,0,0); 
+   TDatime dend(2020,4,26,12,0,0); 
    int ndays = TDatime::GetLegalGlobalDayFromDate(dend.GetDate()) - TDatime::GetLegalGlobalDayFromDate(dstart.GetDate());
 
    TCanvas *c1 = new TCanvas("coronavirus","coronavirus",1280,800);
@@ -270,17 +270,17 @@ void drawMulti() {
 
    TLegend *tlegd = new TLegend(0.349211,0.236871,0.567651,0.771267);
    tlegd->SetBorderSize(0);
-   tlegd->AddEntry(hDeathsChina,"China cases","L");
-   tlegd->AddEntry(hDeathsKorea,"Korea cases","L");
-   tlegd->AddEntry(hDeathsJapan,"Japan cases","L");
-   tlegd->AddEntry(hDeathsIran,"Iran cases","L");
-   tlegd->AddEntry(hDeathsItaly,"Italy cases","L");
-   tlegd->AddEntry(hDeathsFrance,"France cases","L");
-   tlegd->AddEntry(hDeathsGermany,"Germany cases","L");
-   tlegd->AddEntry(hDeathsSwitzerland,"Switzerland cases","L");
-   tlegd->AddEntry(hDeathsSpain,"Spain cases","L");
-   tlegd->AddEntry(hDeathsUS,"US cases","L");
-   tlegd->AddEntry(hDeathsUK,"UK cases","L");
+   tlegd->AddEntry(hDeathsChina,"China deaths","L");
+   tlegd->AddEntry(hDeathsKorea,"Korea deaths","L");
+   tlegd->AddEntry(hDeathsJapan,"Japan deaths","L");
+   tlegd->AddEntry(hDeathsIran,"Iran deaths","L");
+   tlegd->AddEntry(hDeathsItaly,"Italy deaths","L");
+   tlegd->AddEntry(hDeathsFrance,"France deaths","L");
+   tlegd->AddEntry(hDeathsGermany,"Germany deaths","L");
+   tlegd->AddEntry(hDeathsSwitzerland,"Switzerland deaths","L");
+   tlegd->AddEntry(hDeathsSpain,"Spain deaths","L");
+   tlegd->AddEntry(hDeathsUS,"US deaths","L");
+   tlegd->AddEntry(hDeathsUK,"UK deaths","L");
    tlegd->Draw();
    
 
@@ -328,16 +328,16 @@ void drawMulti() {
 
    TLegend *tlegd2 = new TLegend(0.19,0.362665,0.40,0.894349);
    tlegd2->SetBorderSize(0);
-   tlegd2->AddEntry(hDeltaDeathsChina,"China #Delta cases","L");
-   tlegd2->AddEntry(hDeltaDeathsKorea,"Korea #Delta cases","L");
-   tlegd2->AddEntry(hDeltaDeathsJapan,"Japan #Delta cases","L");
-   tlegd2->AddEntry(hDeltaDeathsIran,"Iran #Delta cases","L");
-   tlegd2->AddEntry(hDeltaDeathsItaly,"Italy #Delta cases","L");
-   tlegd2->AddEntry(hDeltaDeathsFrance,"France #Delta cases","L");
-   tlegd2->AddEntry(hDeltaDeathsGermany,"Germany #Delta cases","L");
-   tlegd2->AddEntry(hDeltaDeathsSwitzerland,"Switzerland #Delta cases","L");
-   tlegd2->AddEntry(hDeltaDeathsSpain,"Spain #Delta cases","L");
-   tlegd2->AddEntry(hDeltaDeathsUS,"US #Delta cases","L");
-   tlegd2->AddEntry(hDeltaDeathsUK,"UK #Delta cases","L");
+   tlegd2->AddEntry(hDeltaDeathsChina,"China #Delta deaths","L");
+   tlegd2->AddEntry(hDeltaDeathsKorea,"Korea #Delta deaths","L");
+   tlegd2->AddEntry(hDeltaDeathsJapan,"Japan #Delta deaths","L");
+   tlegd2->AddEntry(hDeltaDeathsIran,"Iran #Delta deaths","L");
+   tlegd2->AddEntry(hDeltaDeathsItaly,"Italy #Delta deaths","L");
+   tlegd2->AddEntry(hDeltaDeathsFrance,"France #Delta deaths","L");
+   tlegd2->AddEntry(hDeltaDeathsGermany,"Germany #Delta deaths","L");
+   tlegd2->AddEntry(hDeltaDeathsSwitzerland,"Switzerland #Delta deaths","L");
+   tlegd2->AddEntry(hDeltaDeathsSpain,"Spain #Delta deaths","L");
+   tlegd2->AddEntry(hDeltaDeathsUS,"US #Delta deaths","L");
+   tlegd2->AddEntry(hDeltaDeathsUK,"UK #Delta deaths","L");
    tlegd2->Draw();
 }
