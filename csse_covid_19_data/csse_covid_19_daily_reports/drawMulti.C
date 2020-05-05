@@ -22,7 +22,7 @@ void drawMulti() {
    // start date is the first day you want, minus 12 hours
    TDatime dstart(2020,1,21,12,0,0);
    // end date is the last day you want, as 12:00:00
-   TDatime dend(2020,5,3,12,0,0); 
+   TDatime dend(2020,5,4,12,0,0); 
    int ndays = TDatime::GetLegalGlobalDayFromDate(dend.GetDate()) - TDatime::GetLegalGlobalDayFromDate(dstart.GetDate());
 
    TCanvas *c1 = new TCanvas("coronavirus","coronavirus",1280,800);
