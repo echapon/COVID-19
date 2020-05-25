@@ -22,7 +22,7 @@ void drawMulti() {
    // start date is the first day you want, minus 12 hours
    TDatime dstart(2020,1,21,12,0,0);
    // end date is the last day you want, as 12:00:00
-   TDatime dend(2020,5,19,12,0,0); 
+   TDatime dend(2020,5,24,12,0,0); 
    int ndays = TDatime::GetLegalGlobalDayFromDate(dend.GetDate()) - TDatime::GetLegalGlobalDayFromDate(dstart.GetDate());
 
    TCanvas *c1 = new TCanvas("coronavirus","coronavirus",1280,800);
@@ -105,7 +105,7 @@ void drawMulti() {
    auto hCasesChina = new TH1F("hCasesChina","Cases (China)",ndays,dstart.Convert(),dend.Convert());
    auto hCasesKorea = new TH1F("hCasesKorea","Cases (Korea)",ndays,dstart.Convert(),dend.Convert());
    auto hCasesJapan = new TH1F("hCasesJapan","Cases (Japan)",ndays,dstart.Convert(),dend.Convert());
-   auto hCasesIran = new TH1F("hCasesIran","Cases (Iran)",ndays,dstart.Convert(),dend.Convert());
+   auto hCasesBrazil = new TH1F("hCasesBrazil","Cases (Brazil)",ndays,dstart.Convert(),dend.Convert());
    auto hCasesItaly = new TH1F("hCasesItaly","Cases (Italy)",ndays,dstart.Convert(),dend.Convert());
    auto hCasesFrance = new TH1F("hCasesFrance","Cases (France)",ndays,dstart.Convert(),dend.Convert());
    auto hCasesGermany = new TH1F("hCasesGermany","Cases (Germany)",ndays,dstart.Convert(),dend.Convert());
@@ -117,7 +117,7 @@ void drawMulti() {
    setHistStyle(hCasesChina, kBlack);
    setHistStyle(hCasesKorea, kRed);
    setHistStyle(hCasesJapan, kBlue);
-   setHistStyle(hCasesIran, kGreen+1);
+   setHistStyle(hCasesBrazil, kGreen+1);
    setHistStyle(hCasesItaly, kMagenta);
    setHistStyle(hCasesFrance, kCyan);
    setHistStyle(hCasesGermany, kYellow+1);
@@ -130,7 +130,7 @@ void drawMulti() {
    tr->Draw("date.Convert()>>hCasesChina","Sum$(Cases*(Country==\"China\"))","hist L same");
    tr->Draw("date.Convert()>>hCasesKorea","Sum$(Cases*(Country==\"South Korea\"))","hist L same");
    tr->Draw("date.Convert()>>hCasesJapan","Sum$(Cases*(Country==\"Japan\"))","hist L same");
-   tr->Draw("date.Convert()>>hCasesIran","Sum$(Cases*(Country==\"Iran\"))","hist L same");
+   tr->Draw("date.Convert()>>hCasesBrazil","Sum$(Cases*(Country==\"Brazil\"))","hist L same");
    tr->Draw("date.Convert()>>hCasesItaly","Sum$(Cases*(Country==\"Italy\"))","hist L same");
    tr->Draw("date.Convert()>>hCasesFrance","Sum$(Cases*(Country==\"France\"))","hist L same");
    tr->Draw("date.Convert()>>hCasesGermany","Sum$(Cases*(Country==\"Germany\"))","hist L same");
@@ -143,7 +143,7 @@ void drawMulti() {
    tleg->AddEntry(hCasesChina,"China cases","L");
    tleg->AddEntry(hCasesKorea,"Korea cases","L");
    tleg->AddEntry(hCasesJapan,"Japan cases","L");
-   tleg->AddEntry(hCasesIran,"Iran cases","L");
+   tleg->AddEntry(hCasesBrazil,"Brazil cases","L");
    tleg->AddEntry(hCasesItaly,"Italy cases","L");
    tleg->AddEntry(hCasesFrance,"France cases","L");
    tleg->AddEntry(hCasesGermany,"Germany cases","L");
@@ -163,7 +163,7 @@ void drawMulti() {
    auto hDeltaCasesChina = new TH1F("hDeltaCasesChina","DeltaCases (China)",ndays,dstart.Convert(),dend.Convert());
    auto hDeltaCasesKorea = new TH1F("hDeltaCasesKorea","DeltaCases (Korea)",ndays,dstart.Convert(),dend.Convert());
    auto hDeltaCasesJapan = new TH1F("hDeltaCasesJapan","DeltaCases (Japan)",ndays,dstart.Convert(),dend.Convert());
-   auto hDeltaCasesIran = new TH1F("hDeltaCasesIran","DeltaCases (Iran)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeltaCasesBrazil = new TH1F("hDeltaCasesBrazil","DeltaCases (Brazil)",ndays,dstart.Convert(),dend.Convert());
    auto hDeltaCasesItaly = new TH1F("hDeltaCasesItaly","DeltaCases (Italy)",ndays,dstart.Convert(),dend.Convert());
    auto hDeltaCasesFrance = new TH1F("hDeltaCasesFrance","DeltaCases (France)",ndays,dstart.Convert(),dend.Convert());
    auto hDeltaCasesGermany = new TH1F("hDeltaCasesGermany","DeltaCases (Germany)",ndays,dstart.Convert(),dend.Convert());
@@ -175,7 +175,7 @@ void drawMulti() {
    setHistStyle(hDeltaCasesChina, kBlack);
    setHistStyle(hDeltaCasesKorea, kRed);
    setHistStyle(hDeltaCasesJapan, kBlue);
-   setHistStyle(hDeltaCasesIran, kGreen+1);
+   setHistStyle(hDeltaCasesBrazil, kGreen+1);
    setHistStyle(hDeltaCasesItaly, kMagenta);
    setHistStyle(hDeltaCasesFrance, kCyan);
    setHistStyle(hDeltaCasesGermany, kYellow+1);
@@ -189,7 +189,7 @@ void drawMulti() {
    makeDelta(hCasesChina,hDeltaCasesChina); hDeltaCasesChina->Draw("hist L same");
    makeDelta(hCasesKorea,hDeltaCasesKorea); hDeltaCasesKorea->Draw("hist L same");
    makeDelta(hCasesJapan,hDeltaCasesJapan); hDeltaCasesJapan->Draw("hist L same");
-   makeDelta(hCasesIran,hDeltaCasesIran); hDeltaCasesIran->Draw("hist L same");
+   makeDelta(hCasesBrazil,hDeltaCasesBrazil); hDeltaCasesBrazil->Draw("hist L same");
    makeDelta(hCasesFrance,hDeltaCasesFrance); hDeltaCasesFrance->Draw("hist L same");
    makeDelta(hCasesGermany,hDeltaCasesGermany); hDeltaCasesGermany->Draw("hist L same");
    makeDelta(hCasesSwitzerland,hDeltaCasesSwitzerland); hDeltaCasesSwitzerland->Draw("hist L same");
@@ -201,7 +201,7 @@ void drawMulti() {
    tleg2->AddEntry(hDeltaCasesChina,"China #Delta cases","L");
    tleg2->AddEntry(hDeltaCasesKorea,"Korea #Delta cases","L");
    tleg2->AddEntry(hDeltaCasesJapan,"Japan #Delta cases","L");
-   tleg2->AddEntry(hDeltaCasesIran,"Iran #Delta cases","L");
+   tleg2->AddEntry(hDeltaCasesBrazil,"Brazil #Delta cases","L");
    tleg2->AddEntry(hDeltaCasesItaly,"Italy #Delta cases","L");
    tleg2->AddEntry(hDeltaCasesFrance,"France #Delta cases","L");
    tleg2->AddEntry(hDeltaCasesGermany,"Germany #Delta cases","L");
@@ -235,7 +235,7 @@ void drawMulti() {
    auto hDeathsChina = new TH1F("hDeathsChina","Deaths (China)",ndays,dstart.Convert(),dend.Convert());
    auto hDeathsKorea = new TH1F("hDeathsKorea","Deaths (Korea)",ndays,dstart.Convert(),dend.Convert());
    auto hDeathsJapan = new TH1F("hDeathsJapan","Deaths (Japan)",ndays,dstart.Convert(),dend.Convert());
-   auto hDeathsIran = new TH1F("hDeathsIran","Deaths (Iran)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeathsBrazil = new TH1F("hDeathsBrazil","Deaths (Brazil)",ndays,dstart.Convert(),dend.Convert());
    auto hDeathsItaly = new TH1F("hDeathsItaly","Deaths (Italy)",ndays,dstart.Convert(),dend.Convert());
    auto hDeathsFrance = new TH1F("hDeathsFrance","Deaths (France)",ndays,dstart.Convert(),dend.Convert());
    auto hDeathsGermany = new TH1F("hDeathsGermany","Deaths (Germany)",ndays,dstart.Convert(),dend.Convert());
@@ -247,7 +247,7 @@ void drawMulti() {
    setHistStyle(hDeathsChina, kBlack);
    setHistStyle(hDeathsKorea, kRed);
    setHistStyle(hDeathsJapan, kBlue);
-   setHistStyle(hDeathsIran, kGreen+1);
+   setHistStyle(hDeathsBrazil, kGreen+1);
    setHistStyle(hDeathsItaly, kMagenta);
    setHistStyle(hDeathsFrance, kCyan);
    setHistStyle(hDeathsGermany, kYellow+1);
@@ -261,7 +261,7 @@ void drawMulti() {
    tr->Draw("date.Convert()>>hDeathsChina","Sum$(Deaths*(Country==\"China\"))","hist L same");
    tr->Draw("date.Convert()>>hDeathsKorea","Sum$(Deaths*(Country==\"South Korea\"))","hist L same");
    tr->Draw("date.Convert()>>hDeathsJapan","Sum$(Deaths*(Country==\"Japan\"))","hist L same");
-   tr->Draw("date.Convert()>>hDeathsIran","Sum$(Deaths*(Country==\"Iran\"))","hist L same");
+   tr->Draw("date.Convert()>>hDeathsBrazil","Sum$(Deaths*(Country==\"Brazil\"))","hist L same");
    tr->Draw("date.Convert()>>hDeathsFrance","Sum$(Deaths*(Country==\"France\"))","hist L same");
    tr->Draw("date.Convert()>>hDeathsGermany","Sum$(Deaths*(Country==\"Germany\"))","hist L same");
    tr->Draw("date.Convert()>>hDeathsSwitzerland","Sum$(Deaths*(Country==\"Switzerland\"))","hist L same");
@@ -273,7 +273,7 @@ void drawMulti() {
    tlegd->AddEntry(hDeathsChina,"China deaths","L");
    tlegd->AddEntry(hDeathsKorea,"Korea deaths","L");
    tlegd->AddEntry(hDeathsJapan,"Japan deaths","L");
-   tlegd->AddEntry(hDeathsIran,"Iran deaths","L");
+   tlegd->AddEntry(hDeathsBrazil,"Brazil deaths","L");
    tlegd->AddEntry(hDeathsItaly,"Italy deaths","L");
    tlegd->AddEntry(hDeathsFrance,"France deaths","L");
    tlegd->AddEntry(hDeathsGermany,"Germany deaths","L");
@@ -293,7 +293,7 @@ void drawMulti() {
    auto hDeltaDeathsChina = new TH1F("hDeltaDeathsChina","DeltaDeaths (China)",ndays,dstart.Convert(),dend.Convert());
    auto hDeltaDeathsKorea = new TH1F("hDeltaDeathsKorea","DeltaDeaths (Korea)",ndays,dstart.Convert(),dend.Convert());
    auto hDeltaDeathsJapan = new TH1F("hDeltaDeathsJapan","DeltaDeaths (Japan)",ndays,dstart.Convert(),dend.Convert());
-   auto hDeltaDeathsIran = new TH1F("hDeltaDeathsIran","DeltaDeaths (Iran)",ndays,dstart.Convert(),dend.Convert());
+   auto hDeltaDeathsBrazil = new TH1F("hDeltaDeathsBrazil","DeltaDeaths (Brazil)",ndays,dstart.Convert(),dend.Convert());
    auto hDeltaDeathsItaly = new TH1F("hDeltaDeathsItaly","DeltaDeaths (Italy)",ndays,dstart.Convert(),dend.Convert());
    auto hDeltaDeathsFrance = new TH1F("hDeltaDeathsFrance","DeltaDeaths (France)",ndays,dstart.Convert(),dend.Convert());
    auto hDeltaDeathsGermany = new TH1F("hDeltaDeathsGermany","DeltaDeaths (Germany)",ndays,dstart.Convert(),dend.Convert());
@@ -305,7 +305,7 @@ void drawMulti() {
    setHistStyle(hDeltaDeathsChina, kBlack);
    setHistStyle(hDeltaDeathsKorea, kRed);
    setHistStyle(hDeltaDeathsJapan, kBlue);
-   setHistStyle(hDeltaDeathsIran, kGreen+1);
+   setHistStyle(hDeltaDeathsBrazil, kGreen+1);
    setHistStyle(hDeltaDeathsItaly, kMagenta);
    setHistStyle(hDeltaDeathsFrance, kCyan);
    setHistStyle(hDeltaDeathsGermany, kYellow+1);
@@ -320,7 +320,7 @@ void drawMulti() {
    makeDelta(hDeathsChina,hDeltaDeathsChina); hDeltaDeathsChina->Draw("hist L same");
    makeDelta(hDeathsKorea,hDeltaDeathsKorea); hDeltaDeathsKorea->Draw("hist L same");
    makeDelta(hDeathsJapan,hDeltaDeathsJapan); hDeltaDeathsJapan->Draw("hist L same");
-   makeDelta(hDeathsIran,hDeltaDeathsIran); hDeltaDeathsIran->Draw("hist L same");
+   makeDelta(hDeathsBrazil,hDeltaDeathsBrazil); hDeltaDeathsBrazil->Draw("hist L same");
    makeDelta(hDeathsGermany,hDeltaDeathsGermany); hDeltaDeathsGermany->Draw("hist L same");
    makeDelta(hDeathsSwitzerland,hDeltaDeathsSwitzerland); hDeltaDeathsSwitzerland->Draw("hist L same");
    makeDelta(hDeathsSpain,hDeltaDeathsSpain); hDeltaDeathsSpain->Draw("hist L same");
@@ -331,7 +331,7 @@ void drawMulti() {
    tlegd2->AddEntry(hDeltaDeathsChina,"China #Delta deaths","L");
    tlegd2->AddEntry(hDeltaDeathsKorea,"Korea #Delta deaths","L");
    tlegd2->AddEntry(hDeltaDeathsJapan,"Japan #Delta deaths","L");
-   tlegd2->AddEntry(hDeltaDeathsIran,"Iran #Delta deaths","L");
+   tlegd2->AddEntry(hDeltaDeathsBrazil,"Brazil #Delta deaths","L");
    tlegd2->AddEntry(hDeltaDeathsItaly,"Italy #Delta deaths","L");
    tlegd2->AddEntry(hDeltaDeathsFrance,"France #Delta deaths","L");
    tlegd2->AddEntry(hDeltaDeathsGermany,"Germany #Delta deaths","L");
