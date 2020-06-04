@@ -1984,7 +1984,7 @@ FIPS,Admin2,Province_State,Country_Region,Last_Update,Lat,Long_,Confirmed,Deaths
 31129,Nuckolls,Nebraska,US,2020-05-29 02:32:50,40.17637905,-98.04743961,1,0,0,1,"Nuckolls, Nebraska, US"
 48355,Nueces,Texas,US,2020-05-29 02:32:50,27.736286,-97.5433285,268,3,0,265,"Nueces, Texas, US"
 32023,Nye,Nevada,US,2020-05-29 02:32:50,38.04264256,-116.4722702,61,1,0,60,"Nye, Nevada, US"
-19141,O'Brien,Iowa,US,2020-05-29 02:32:50,43.08310673,-95.62474482,27,0,0,27,"O'Brien, Iowa, US"
+19141,O Brien,Iowa,US,2020-05-29 02:32:50,43.08310673,-95.62474482,27,0,0,27,"O Brien, Iowa, US"
 26125,Oakland,Michigan,US,2020-05-29 02:32:50,42.66090111,-83.38595416,8281,971,0,7310,"Oakland, Michigan, US"
 47131,Obion,Tennessee,US,2020-05-29 02:32:50,36.35732446,-89.14921589,28,1,0,27,"Obion, Tennessee, US"
 34029,Ocean,New Jersey,US,2020-05-29 02:32:50,39.8895449,-74.28089251,8577,711,0,7866,"Ocean, New Jersey, US"
@@ -2213,7 +2213,7 @@ FIPS,Admin2,Province_State,Country_Region,Last_Update,Lat,Long_,Confirmed,Deaths
 55099,Price,Wisconsin,US,2020-05-29 02:32:50,45.68051754,-90.3609888,2,0,0,2,"Price, Wisconsin, US"
 51147,Prince Edward,Virginia,US,2020-05-29 02:32:50,37.22554789,-78.43597949,129,2,0,127,"Prince Edward, Virginia, US"
 51149,Prince George,Virginia,US,2020-05-29 02:32:50,37.18497668,-77.22922187,81,0,0,81,"Prince George, Virginia, US"
-24033,Prince George's,Maryland,US,2020-05-29 02:32:50,38.83070039,-76.8496441,14508,530,0,13978,"Prince George's, Maryland, US"
+24033,Prince George s,Maryland,US,2020-05-29 02:32:50,38.83070039,-76.8496441,14508,530,0,13978,"Prince George s, Maryland, US"
 51153,Prince William,Virginia,US,2020-05-29 02:32:50,38.70916224,-77.48713689,5157,101,0,5056,"Prince William, Virginia, US"
 2198,Prince of Wales-Hyder,Alaska,US,2020-05-29 02:32:50,55.76261984,-133.0511621,2,0,0,2,"Prince of Wales-Hyder, Alaska, US"
 44007,Providence,Rhode Island,US,2020-05-29 02:32:50,41.87064746,-71.57753536,10968,0,0,10968,"Providence, Rhode Island, US"
@@ -2236,7 +2236,7 @@ FIPS,Admin2,Province_State,Country_Region,Last_Update,Lat,Long_,Confirmed,Deaths
 47141,Putnam,Tennessee,US,2020-05-29 02:32:50,36.14005459,-85.50646123,461,5,0,456,"Putnam, Tennessee, US"
 54079,Putnam,West Virginia,US,2020-05-29 02:32:50,38.50782345,-81.9082131,35,0,0,35,"Putnam, West Virginia, US"
 35037,Quay,New Mexico,US,2020-05-29 02:32:50,35.10403332,-103.5481727,5,1,0,4,"Quay, New Mexico, US"
-24035,Queen Anne's,Maryland,US,2020-05-29 02:32:50,39.06198912,-76.03530977,152,12,0,140,"Queen Anne's, Maryland, US"
+24035,Queen Anne s,Maryland,US,2020-05-29 02:32:50,39.06198912,-76.03530977,152,12,0,140,"Queen Anne s, Maryland, US"
 13239,Quitman,Georgia,US,2020-05-29 02:32:50,31.86728114,-85.01773177,12,1,0,11,"Quitman, Georgia, US"
 28119,Quitman,Mississippi,US,2020-05-29 02:32:50,34.25157572,-90.28908,25,0,0,25,"Quitman, Mississippi, US"
 13241,Rabun,Georgia,US,2020-05-29 02:32:50,34.88389445,-83.40304637,19,1,0,18,"Rabun, Georgia, US"
@@ -2518,7 +2518,7 @@ FIPS,Admin2,Province_State,Country_Region,Last_Update,Lat,Long_,Confirmed,Deaths
 12111,St. Lucie,Florida,US,2020-05-29 02:32:50,27.37763908,-80.47106649,424,30,0,394,"St. Lucie, Florida, US"
 22099,St. Martin,Louisiana,US,2020-05-29 02:32:50,30.13112107,-91.61403569,293,22,0,271,"St. Martin, Louisiana, US"
 22101,St. Mary,Louisiana,US,2020-05-29 02:32:50,29.69262097,-91.44702164,309,29,0,280,"St. Mary, Louisiana, US"
-24037,St. Mary's,Maryland,US,2020-05-29 02:32:50,38.30058422,-76.60629279999998,417,19,0,398,"St. Mary's, Maryland, US"
+24037,St. Mary s,Maryland,US,2020-05-29 02:32:50,38.30058422,-76.60629279999998,417,19,0,398,"St. Mary s, Maryland, US"
 22103,St. Tammany,Louisiana,US,2020-05-29 02:32:50,30.40942847,-89.95642711,1703,156,0,1547,"St. Tammany, Louisiana, US"
 20185,Stafford,Kansas,US,2020-05-29 02:32:50,38.03100851,-98.71762001,1,0,0,1,"Stafford, Kansas, US"
 51179,Stafford,Virginia,US,2020-05-29 02:32:50,38.41758738,-77.45917053,672,4,0,668,"Stafford, Virginia, US"
@@ -3323,7 +3323,7 @@ FIPS,Admin2,Province_State,Country_Region,Last_Update,Lat,Long_,Confirmed,Deaths
 ,,Unknown,Japan,2020-05-29 02:32:50,,,8,0,0,8,"Unknown, Japan"
 ,,Unknown,Peru,2020-05-29 02:32:50,,,0,0,59442,-59442,"Unknown, Peru"
 ,,Unknown,Spain,2020-05-29 02:32:50,,,0,0,0,0,"Unknown, Spain"
-,,Valle d'Aosta,Italy,2020-05-29 02:32:50,45.73750286,7.320149366,1182,143,1016,23,"Valle d'Aosta, Italy"
+,,Valle d Aosta,Italy,2020-05-29 02:32:50,45.73750286,7.320149366,1182,143,1016,23,"Valle d Aosta, Italy"
 ,,Valle del Cauca,Colombia,2020-05-29 02:32:50,3.8009,-76.6413,2828,138,821,1869,"Valle del Cauca, Colombia"
 ,,Valparaiso,Chile,2020-05-29 02:32:50,-33.0472,-71.6127,2730,60,0,2670,"Valparaiso, Chile"
 ,,Vaupes,Colombia,2020-05-29 02:32:50,0.8554,-70.812,11,0,0,11,"Vaupes, Colombia"
@@ -3378,7 +3378,7 @@ FIPS,Admin2,Province_State,Country_Region,Last_Update,Lat,Long_,Confirmed,Deaths
 ,,,Congo (Brazzaville),2020-05-29 02:32:50,-0.228,15.8277,571,19,161,391,Congo (Brazzaville)
 ,,,Congo (Kinshasa),2020-05-29 02:32:50,-4.0383,21.7587,2660,69,381,2210,Congo (Kinshasa)
 ,,,Costa Rica,2020-05-29 02:32:50,9.7489,-83.7534,1000,10,646,344,Costa Rica
-,,,Cote d'Ivoire,2020-05-29 02:32:50,7.54,-5.5471,2641,32,1326,1283,Cote d'Ivoire
+,,,Cote d Ivoire,2020-05-29 02:32:50,7.54,-5.5471,2641,32,1326,1283,Cote d Ivoire
 ,,,Croatia,2020-05-29 02:32:50,45.1,15.2,2245,102,2051,92,Croatia
 ,,,Cuba,2020-05-29 02:32:50,21.521757,-77.78116700000002,1983,82,1734,167,Cuba
 ,,,Cyprus,2020-05-29 02:32:50,35.1264,33.4299,941,17,784,140,Cyprus
